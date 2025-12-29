@@ -46,7 +46,6 @@ const Shop = () => {
                 alt="product"
                 style={{
                   objectFit: "contain",
-
                   padding: "10px",
                 }}
               />
@@ -56,7 +55,7 @@ const Shop = () => {
                   MuscleTech Nitrotech
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Price: ₹5350
+                  Price: 5350
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -65,7 +64,6 @@ const Shop = () => {
             </Button>
           </Card>
 
-          {/* CARD 2 */}
           <Card
             sx={{
               width: 300,
@@ -131,7 +129,7 @@ const Shop = () => {
             </Button>
           </Card>
 
-          {/* CARD 4 */}
+          {/* Card */}
           <Card
             sx={{
               width: 300,

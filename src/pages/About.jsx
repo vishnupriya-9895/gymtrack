@@ -6,6 +6,7 @@ import { Typography } from "@mui/material";
 import Button from "react-bootstrap/Button";
 
 import "../App.css";
+import Footer from "../Components/Footer";
 const About = () => {
     useEffect(() => {
     gsap.utils.toArray(".color-scope").forEach((card, index) => {
@@ -15,7 +16,7 @@ const About = () => {
         repeat: -1,
         yoyo: true,
         ease: "power1.inOut",
-        delay: index * 0.3, // stagger animation
+        delay: index * 0.3, 
       });
     });
   }, []);
@@ -214,7 +215,7 @@ const About = () => {
           </div>
         </div>
         <div
-          className="container bg-light p-5 text-center"
+          className="container bg-light p-5 text-center mb-5"
           style={{ height: "300px", marginTop: "40px", borderRadius: "20px" }}
         >
           <Typography variant="h5" className="mb-4">
@@ -233,6 +234,7 @@ const About = () => {
           </Button>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

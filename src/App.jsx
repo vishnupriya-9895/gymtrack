@@ -11,6 +11,7 @@ import Gymworkout from "./pages/workouts/Gymworkout";
 import Homework from './pages/workouts/Homework';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import Premium from './pages/Premium';
 import gsap from 'gsap';
 import { useEffect } from 'react';
 import Sellerhome from './pages/Sellerhome';
@@ -20,9 +21,10 @@ import SellerSettings from './pages/SellerSettings';
 import AdminHome from './Admin/AdminHome';
 import ExerciseAdmin from './Admin/ExerciseAdmin';
 import AdminUser from './Admin/AdminUser';
+
 import AdminProduct from './Admin/AdminProduct';
 import Footer from './Components/Footer';
-
+import AdminNutrition from './Admin/AdminNutrition';
 
 
 
@@ -48,8 +50,8 @@ function App() {
           <Route path="/nutrition" element={<Nutrition />} />
           <Route path="/contact" element={<Contact />} />
 
-
-
+ <Route path="/premium" element={<Premium/>} />
+ <Route path="/adminnutrition" element={<AdminNutrition/>} />
           {/* <Footer/> */}
 <Route path="/Login" element={<Login/>} />
 <Route path="/Adminlogin"element={<Adminlogin/>}/>

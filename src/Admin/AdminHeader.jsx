@@ -2,18 +2,10 @@ import React from "react";
 
 const AdminHeader = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "black",
-        color: "white",
-        padding: "12px 20px",
-        height: "70px"
-      }}
+    <div className="d-flex justify-content-center align-items-center bg-black text-white px-4 py-2 pt-4 pb-4"
+     
     >
-      <h3 style={{ margin: 0, fontWeight: "500" }}>Welcome Admin</h3>
+      <h3 >Welcome Admin</h3>
       
       <div
         style={{

@@ -9,7 +9,9 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
+
     <div style={{ position: "relative" }}>
+      {/* header */}
       <div className="blur-navbar">
         <Header />
       </div>
@@ -33,39 +35,43 @@ const Home = () => {
             }}
           >
             <h1>Gym Track</h1>
-            <p>Your one-stop platform for workouts, nutrition, and fitness products. Train smart. Live strong.</p>
+            <p>
+              Your one-stop platform for workouts, nutrition, and fitness
+              products. Train smart. Live strong.
+            </p>
 
-         <Link to={"/gymworkout"}>
-            <button
-              style={{
-                padding: "10px 25px",
-                background: "black",
-                color: "white",
-                borderRadius: "6px",
-                border: "none",
-                fontSize: "16px",
-                cursor: "pointer",
-              }}
-            >
-              Start Workout
-            </button></Link>
+            <Link to={"/gymworkout"}>
+              <button
+                style={{
+                  padding: "10px 25px",
+                  background: "black",
+                  color: "white",
+                  borderRadius: "6px",
+                  border: "none",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
+              >
+                Start Workout
+              </button>
+            </Link>
 
-          <Link to={"/shop"}>
-            <button
-              style={{
-                marginLeft: "30px",
-                padding: "10px 40px",
-                background: "black",
-                color: "white",
-                borderRadius: "6px",
-                border: "none",
-                fontSize: "16px",
-                cursor: "pointer",
-              }}
-            >
-              Shop
-            </button>
-          </Link>
+            <Link to={"/shop"}>
+              <button
+                style={{
+                  marginLeft: "30px",
+                  padding: "10px 40px",
+                  background: "black",
+                  color: "white",
+                  borderRadius: "6px",
+                  border: "none",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
+              >
+                Shop
+              </button>
+            </Link>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -87,40 +93,41 @@ const Home = () => {
               position: "absolute",
             }}
           >
-            <h1 >Gym workout</h1>
+            <h1>Gym workout</h1>
             <p>Push your limits with advanced weight training and machines.</p>
 
-             <Link to={"/gymworkout"}>
-            <button
-              style={{
-                padding: "10px 25px",
-                background: "black",
-                color: "white",
-                borderRadius: "6px",
-                border: "none",
-                fontSize: "16px",
-                cursor: "pointer",
-              }}
-            >
-              Start Workout
-            </button></Link>
+            <Link to={"/gymworkout"}>
+              <button
+                style={{
+                  padding: "10px 25px",
+                  background: "black",
+                  color: "white",
+                  borderRadius: "6px",
+                  border: "none",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
+              >
+                Start Workout
+              </button>
+            </Link>
 
-          <Link to={"/shop"}>
-            <button
-              style={{
-                marginLeft: "30px",
-                padding: "10px 40px",
-                background: "black",
-                color: "white",
-                borderRadius: "6px",
-                border: "none",
-                fontSize: "16px",
-                cursor: "pointer",
-              }}
-            >
-              Shop
-            </button>
-          </Link>
+            <Link to={"/shop"}>
+              <button
+                style={{
+                  marginLeft: "30px",
+                  padding: "10px 40px",
+                  background: "black",
+                  color: "white",
+                  borderRadius: "6px",
+                  border: "none",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
+              >
+                Shop
+              </button>
+            </Link>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -143,65 +150,64 @@ const Home = () => {
             }}
           >
             <h1>Home workouts</h1>
-            <p>Train anywhere with effective routines designed to build strength using minimal equipment.</p>
+            <p>
+              Train anywhere with effective routines designed to build strength
+              using minimal equipment.
+            </p>
 
             <Link to={"/gymworkout"}>
-            <button
-              style={{
-                padding: "10px 25px",
-                background: "black",
-                color: "white",
-                borderRadius: "6px",
-                border: "none",
-                fontSize: "16px",
-                cursor: "pointer",
-              }}
-            >
-              Start Workout
-            </button></Link>
+              <button
+                style={{
+                  padding: "10px 25px",
+                  background: "black",
+                  color: "white",
+                  borderRadius: "6px",
+                  border: "none",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
+              >
+                Start Workout
+              </button>
+            </Link>
 
-          <Link to={"/shop"}>
-            <button
-              style={{
-                marginLeft: "30px",
-                padding: "10px 40px",
-                background: "black",
-                color: "white",
-                borderRadius: "6px",
-                border: "none",
-                fontSize: "16px",
-                cursor: "pointer",
-              }}
-            >
-              Shop
-            </button>
-          </Link>
+            <Link to={"/shop"}>
+              <button
+                style={{
+                  marginLeft: "30px",
+                  padding: "10px 40px",
+                  background: "black",
+                  color: "white",
+                  borderRadius: "6px",
+                  border: "none",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
+              >
+                Shop
+              </button>
+            </Link>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
 
-    
       <div
-        style={{ fontSize: "22px", textAlign: "center" }}
-        className="container"
+       
+        className="container fs-4 text-center"
       >
-        <p style={{ marginTop: "40px", marginBottom: "50px" }}>
-        
+        <p className="mt-5 mb-5">
           Welcome to GymTrack, your all-in-one platform for achieving your
           health and wellness <br /> goals. Whether you want to follow guided
           workouts, find the perfect nutrition plan, or <br /> shop for the best
           fitness gear, we've got you covered. Explore the sections below to get{" "}
           <br /> started on your path to a healthier, stronger you.
         </p>
-          {/* card1 */}
+        {/* cards */}
         <section className="d-flex  justify-content-between">
           <Card
-            className="animated-card text-center"
+            className="animated-card text-center  rounded-2xl p-4 border-0 "
             style={{
-              width: "22rem",
-              borderRadius: "20px",
-              padding: "25px",
-              border: "none",
+              width: "350px",
             }}
           >
             <div
@@ -217,14 +223,11 @@ const Home = () => {
             </p>
           </Card>
 
-         
           <Card
-            className="animated-card text-center"
+            className="animated-card text-center rounded-2xl p-4 border-0"
             style={{
-              width: "22rem",
-              borderRadius: "20px",
-              padding: "25px",
-              border: "none",
+              width: "350px",
+             
             }}
           >
             <Card.Body>
@@ -241,14 +244,12 @@ const Home = () => {
               </p>
             </Card.Body>
           </Card>
-      
+
           <Card
-            className="animated-card text-center"
+            className="animated-card text-center rounded-2xl p-4 border-0"
             style={{
-              width: "22rem",
-              borderRadius: "20px",
-              padding: "25px",
-              border: "none",
+              width: "350px",
+             
             }}
           >
             <Card.Body>
@@ -266,21 +267,21 @@ const Home = () => {
               </p>
             </Card.Body>
           </Card>
-
-
         </section>
+
+
+        {/* next card */}
         <div className="d-flex justify-content-between">
-          <Typography
+          <Typography className="mt-5 mb-5"
             variant="h4"
-            style={{ marginTop: "50px", marginBottom: "50px" }}
+          
           >
             Featured workouts
           </Typography>
-         
         </div>
-       
+
         <div className="cards-wrapper">
-         {/* home */}
+        
           <div
             className="project-card"
             style={{
@@ -316,7 +317,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-{/* cardio */}
+          {/* cardio */}
           <div
             className="project-card"
             style={{
@@ -335,58 +336,55 @@ const Home = () => {
           </div>
         </div>
 
-       
-
-       
         <div className="d-flex justify-content-between">
           <Typography
             variant="h4"
-            style={{ marginTop: "50px", marginBottom: "50px" }}
+              className="mt-5 mb-5"
           >
             Featured products
           </Typography>
-          <Typography
+       <Link  style={{textDecoration:"none",color:"black" , marginTop: "50px"}} to="/shop">   <Typography
             variant="p"
-            style={{ marginTop: "50px", marginBottom: "50px" }}
+          
           >
             view more
-          </Typography>
+          </Typography></Link>
         </div>
-        {/* card  products*/}
-        <div className="card-group gap-5 product-cards">
-          <div className="card custom-card">
+      
+        <div     className="card-group gap-5 product-cards">
+          <div className="card custom-card"sx={{ height: "100%" }}>
             <img
-              className="card-img"
+              className="card-img img-fluid"
               src="https://img8.hkrtcdn.com/39078/prd_3907787-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg"
               alt="..."
             />
-            <div className="card-body text-center">
+            <div sx={{ flexGrow: 1 }} className="card-body text-center">
               <h5 className="card-title">Whey protein</h5>
               <button className="btn-shop">Shop Now</button>
             </div>
           </div>
 
-          <div className="card custom-card">
+          <div className="card custom-card" sx={{ height: "100%" }}>
             <img
-              className="card-img"
+              className="card-img img-fluid"
               src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTAg-MfYoDDDeWhJWt8rPlai_bm_YSA7bvoLIRkDbE8EhmG09aInP7-3gCtBSpumKGX_84_a2Cy3M1a4C5GwdlqzzXVRREUcgl9lTWxbu4ZxhGlm2qCRuMnKp0"
               alt="..."
             />
-            <div className="card-body text-center">
+            <div sx={{ flexGrow: 1 }} className="card-body text-center">
               <h5 className="card-title">Dumbells</h5>
               <button className="btn-shop">Shop Now</button>
             </div>
           </div>
 
-          <div className="card custom-card">
+          <div className="card custom-card" sx={{ height: "100%" }}>
             <img
-              className="card-img"
+              className="card-img img-fluid"
               src="https://www.theflexnest.com/cdn/shop/files/KitchenScaleXL-BowlIMG_1_5a8bb76a-e56a-4a63-b618-883439ae87d4_500x500.png?v=1732608436"
               alt="..."
             />
-            <div className="card-body text-center">
+            <div className="card-body text-center "sx={{ flexGrow: 1 }}>
               <h5 className="card-title">Flexnest Kitchen Scale</h5>
-              <button className="btn-shop">Shop Now</button>
+             <Link to="/shop"  style={{textDecoration:"none",color:"black" }}> <button className="btn-shop">Shop Now</button></Link>
             </div>
           </div>
         </div>
@@ -403,15 +401,16 @@ const Home = () => {
         >
           <Typography
             variant="h5"
-            style={{ textAlign: "center", paddingTop: "50px" }}
+            className="text-center p-4 mt-5"
+           
           >
             what our members are saying
           </Typography>
           <div
-            className="d-flex justify-content-between "
-            style={{ marginTop: "80px" }}
+            className="d-flex justify-content-between mt-5 "
+            
           >
-            <div style={{ marginLeft: "60px" }}>
+            <div className="mx-5" >
               <div
                 className="bg-center bg-no-repeat bg-cover rounded-circle "
                 style={{
@@ -423,9 +422,10 @@ const Home = () => {
                 }}
               ></div>
               <Typography variant="p" style={{ fontSize: "15px" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elitbr.{" "}
-                <br /> Rerum quaerat obcaecati deserunt, dolor atque cumque
-                voluptates <br />
+              I noticed better energy levels and improved muscle tone after <br />
+               following the workout routines regularly. The exercises are <br />  practical and effective.”
+                
+              
               </Typography>
               <Typography>-vishnu</Typography>
             </div>
@@ -441,11 +441,10 @@ const Home = () => {
                 }}
               ></div>
               <Typography variant="p" style={{ fontSize: "15px" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elitbr.{" "}
-                <br /> Rerum quaerat obcaecati deserunt, dolor atque cumque
-                voluptates <br />
+              The exercises are easy to follow and suitable for all fitness levels. <br /> Each workout helps improve strength, 
+               flexibility, and  overall <br /> stamina.
               </Typography>
-              <Typography>-vishnu</Typography>
+              <Typography>-poornima</Typography>
             </div>
           </div>
         </div>

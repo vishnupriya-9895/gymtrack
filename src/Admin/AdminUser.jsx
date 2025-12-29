@@ -25,7 +25,7 @@ const AdminUser = () => {
             Overview of users currently logged into the platform
           </p>
 
-      \
+      
           <div
             style={{
               display: "flex",
@@ -42,16 +42,16 @@ const AdminUser = () => {
 
             <Card style={{ ...cardStyle,  }}>
               <h6>Premium Users</h6>
-              <h3 style={{ color: "green" }}>45</h3>
+              <h3 >45</h3>
             </Card>
 
             <Card style={{ ...cardStyle, }}>
               <h6>Seller</h6>
-              <h3 style={{ color: "red" }}>75</h3>
+              <h3>75</h3>
             </Card>
           </div>
 
-          {/* SEARCH */}
+       
           <div
             style={{
               background: "#fff",
@@ -71,7 +71,7 @@ const AdminUser = () => {
             </InputGroup>
           </div>
 
-          {/* USERS TABLE */}
+      
           <Card
             style={{
               borderRadius: "12px",

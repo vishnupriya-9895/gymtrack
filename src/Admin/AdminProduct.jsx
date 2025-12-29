@@ -9,11 +9,13 @@ const AdminProduct = () => {
     <div>
       <AdminHeader />
 
-      <div style={{ display: "flex", background: "#f4f6f8", minHeight: "100vh" }}>
-        {/* SIDEBAR */}
+      <div
+        style={{ display: "flex", background: "#f4f6f8", minHeight: "100vh" }}
+      >
+       
         <AdminAside />
 
-        {/* MAIN CONTENT */}
+     
         <div
           style={{
             marginLeft: "240px",
@@ -21,13 +23,12 @@ const AdminProduct = () => {
             width: "100%",
           }}
         >
-          {/* PAGE TITLE */}
-          <h2 style={{ fontWeight: "600" }}>Approve Seller Products</h2>
-          <p style={{ color: "#6c757d", marginBottom: "30px" }}>
+      
+          <h2 className="fw-semibold">Approve Seller Products</h2>
+          <p  className="text-secondary mb-4">
             Review and approve products submitted by sellers
           </p>
 
-          {/* SEARCH BAR */}
           <div
             style={{
               background: "#fff",
@@ -47,7 +48,7 @@ const AdminProduct = () => {
             </InputGroup>
           </div>
 
-          {/* SUMMARY CARDS */}
+          
           <div
             style={{
               display: "flex",

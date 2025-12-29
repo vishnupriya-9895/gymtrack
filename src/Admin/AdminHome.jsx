@@ -19,20 +19,20 @@ const AdminHome = () => {
             width: "100%",
           }}
         >
-          {/* HEADER */}
-          <h2 style={{ fontWeight: "600", marginBottom: "5px" }}>
+       
+          <h2 >
             Admin Dashboard
           </h2>
-          <p style={{ color: "#6c757d", marginBottom: "30px" }}>
+          <p className="mb-3" >
             Welcome back Admin! Here's an overview of your platform activities.
           </p>
 
-          {/* SEARCH + ACTION */}
-          <div
+          
+          <div className="bg-white rounded-3xl"
             style={{
-              background: "#fff",
+             
               padding: "20px",
-              borderRadius: "14px",
+            
               boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
               marginBottom: "30px",
               display: "flex",
@@ -54,13 +54,8 @@ const AdminHome = () => {
           </div>
 
          
-          <div
-            style={{
-              display: "flex",
-              gap: "20px",
-              flexWrap: "wrap",
-              marginBottom: "40px",
-            }}
+          <div className="d-flex flex-wrap gap-4 mb-5"
+            
           >
             
                 <Card
@@ -74,15 +69,15 @@ const AdminHome = () => {
                     boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
                   }}
                 >
-                  <h6 style={{ color: "#6c757d", marginBottom: "8px" }}>
+                  <h6 className="text-secondary mb-2 text-2xl font-bold">
                    users
                   </h6>
-                  <h2 style={{ fontWeight: "700" }}>10</h2>
+                  <h2 >10</h2>
                 </Card>
               
           </div>
 
-          {/* TABLE */}
+     
           <div
             style={{
               background: "#fff",
@@ -91,7 +86,7 @@ const AdminHome = () => {
               boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
             }}
           >
-            <h5 style={{ fontWeight: "600", marginBottom: "20px" }}>
+            <h5 className="fw-semibold mb-4">
               Products to Approve
             </h5>
 
@@ -100,14 +95,14 @@ const AdminHome = () => {
                 <tr>
                   <th>Product Name</th>
                   <th>Seller</th>
-                  <th style={{ textAlign: "center" }}>Actions</th>
+                  <th className="text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Protein Powder</td>
                   <td>Mark</td>
-                  <td style={{ textAlign: "center" }}>
+                  <td className="text-center">
                     <Button size="sm" variant="success" className="me-2">
                       Approve
                     </Button>
@@ -120,7 +115,7 @@ const AdminHome = () => {
                 <tr>
                   <td>Yoga Mat</td>
                   <td>Jacob</td>
-                  <td style={{ textAlign: "center" }}>
+                  <td className="text-center">
                     <Button size="sm" variant="success" className="me-2">
                       Approve
                     </Button>

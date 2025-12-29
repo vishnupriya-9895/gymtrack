@@ -29,18 +29,7 @@ const exercisesData = {
     },
   ],
 
-  Legs: [
-    {
-      name: "Squats",
-      img: "https://fitnessprogramer.com/wp-content/uploads/2021/02/Air-Squat.gif",
-      desc: "Home-friendly leg exercise to build strength.",
-    },
-    {
-      name: "Lunges",
-      img: "https://fitnessprogramer.com/wp-content/uploads/2021/02/Forward-Lunge.gif",
-      desc: "Targets quads, glutes, and hamstrings.",
-    },
-  ],
+  
 };
 
 const HomeWorkout = () => {

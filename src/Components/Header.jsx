@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <Navbar expand="lg" className="bg-transparent">
       <Container>
-        {/* Logo */}
+        
         <Link to="/" className="navbar-brand">
           Gym Track
         </Link>
@@ -55,11 +55,7 @@ const Header = () => {
               Login
             </Button>
           </Link>
-            <Link to="/login">
-            <Button variant="outline-light" className="ms-3">
-              Become a seller
-            </Button>
-          </Link>
+          
 
           {/* Profile Image */}
           <div
