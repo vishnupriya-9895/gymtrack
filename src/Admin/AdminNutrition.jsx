@@ -1,27 +1,47 @@
-import React from "react";
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { toast } from "react-toastify";
 import AdminHeader from "./AdminHeader";
 import AdminAside from "./AdminAside";
+import { nutrientsAdd } from "../services/allApi";
 
 const AdminNutrition = () => {
+  const [nutrition, setNutrition] = useState({
+    title: "",
+    description: "",
+    imageUrl: "",
+    Premium: true,
+  });
+
+  const nutrientsadd = async () => {
+    try {
+      let token = localStorage.getItem("token");
+
+      let reqHeader = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      };
+
+      let apiresponse = await nutrientsAdd(nutrition, reqHeader);
+      console.log(apiresponse);
+      toast.success("Nutrition added successfully");
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
+
   return (
     <div>
       <AdminHeader />
 
-      <div style={{ display: "flex", minHeight: "100vh", background: "#f4f6f8" }}>
+      <div
+        style={{ display: "flex", minHeight: "100vh", background: "#f4f6f8" }}
+      >
         <AdminAside />
 
-        {/* MAIN CONTENT */}
-        <div
-          style={{
-            marginLeft: "240px",
-            padding: "30px",
-            width: "100%",
-          }}
-        >
-          <h2 style={{ fontWeight: "600", marginBottom: "10px" }}>
-            Add Premium Nutrition
-          </h2>
+        <div style={{ marginLeft: "240px", padding: "30px", width: "100%" }}>
+          <h2 style={{ fontWeight: "600" }}>Add Premium Nutrition</h2>
           <p style={{ color: "#6c757d", marginBottom: "30px" }}>
             Create nutrition & diet plans for premium users
           </p>
@@ -37,94 +57,54 @@ const AdminNutrition = () => {
                     boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
                   }}
                 >
-                  <Form>
-                    {/* TITLE */}
-                    <Form.Group className="mb-4">
-                      <Form.Label style={{ fontWeight: "500" }}>
-                        Nutrition Title
-                      </Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Eg: High Protein Muscle Gain Diet"
-                      />
-                    </Form.Group>
+                  <input
+                    onChange={(e) =>
+                      setNutrition({ ...nutrition, title: e.target.value })
+                    }
+                    className="form-control mb-4"
+                    type="text"
+                    name="title"
+                    value={nutrition.title}
+                    placeholder="Nutrition Title"
+                  />
 
-                    {/* GOAL TYPE */}
-                    <Form.Group className="mb-4">
-                      <Form.Label style={{ fontWeight: "500" }}>
-                        Fitness Goal
-                      </Form.Label>
-                      <Form.Select>
-                        <option>Select Goal</option>
-                        <option>Weight Loss</option>
-                        <option>Muscle Gain</option>
-                        <option>Maintenance</option>
-                      </Form.Select>
-                    </Form.Group>
+                  <input
+                    onChange={(e) =>
+                      setNutrition({ ...nutrition, imageUrl: e.target.value })
+                    }
+                    className="form-control mb-4"
+                    type="text"
+                    name="imageUrl"
+                    value={nutrition.imageUrl}
+                    placeholder="Image URL"
+                  />
 
-                    {/* CALORIES & PROTEIN */}
-                    <Row>
-                      <Col md={6}>
-                        <Form.Group className="mb-4">
-                          <Form.Label style={{ fontWeight: "500" }}>
-                            Daily Calories (kcal)
-                          </Form.Label>
-                          <Form.Control
-                            type="number"
-                            placeholder="Eg: 2200"
-                          />
-                        </Form.Group>
-                      </Col>
+                  <textarea
+                    className="form-control mb-4"
+                    rows={4}
+                    name="description"
+                    value={nutrition.description}
+                    onChange={(e) =>
+                      setNutrition({
+                        ...nutrition,
+                        description: e.target.value,
+                      })
+                    }
+                    placeholder="Diet description"
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      gap: "15px",
+                    }}
+                  >
+                    <Button variant="secondary">Cancel</Button>
 
-                      <Col md={6}>
-                        <Form.Group className="mb-4">
-                          <Form.Label style={{ fontWeight: "500" }}>
-                            Protein (grams)
-                          </Form.Label>
-                          <Form.Control
-                            type="number"
-                            placeholder="Eg: 150"
-                          />
-                        </Form.Group>
-                      </Col>
-                    </Row>
-
-                    {/* DIET DESCRIPTION */}
-                    <Form.Group className="mb-4">
-                      <Form.Label style={{ fontWeight: "500" }}>
-                        Diet Description
-                      </Form.Label>
-                      <Form.Control
-                        as="textarea"
-                        rows={4}
-                        placeholder="Describe meals, food items, nutrition tips..."
-                      />
-                    </Form.Group>
-
-                    {/* PREMIUM TAG */}
-                    <Form.Group className="mb-4">
-                      <Form.Check
-                        type="checkbox"
-                        label="Mark as Premium Content"
-                        defaultChecked
-                      />
-                    </Form.Group>
-
-                    {/* BUTTONS */}
-                    <div
-                      style={{
-                        display: "flex",
-                        gap: "15px",
-                        justifyContent: "flex-end",
-                        marginTop: "20px",
-                      }}
-                    >
-                      <Button variant="secondary">Cancel</Button>
-                      <Button variant="dark">
-                        Publish Nutrition Plan
-                      </Button>
-                    </div>
-                  </Form>
+                    <Button variant="dark" onClick={nutrientsadd}>
+                      Publish Nutrition Plan
+                    </Button>
+                  </div>
                 </Card>
               </Col>
             </Row>

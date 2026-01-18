@@ -74,7 +74,7 @@ const AdminProduct = () => {
             </Card>
           </div>
 
-          {/* PRODUCTS TABLE */}
+         
           <Card
             style={{
               borderRadius: "12px",

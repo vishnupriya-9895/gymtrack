@@ -1,5 +1,4 @@
 
-@import "tailwindcss";
 
 
 *{
@@ -192,12 +191,12 @@ body{
 
 .main {
   width: 430px;
-  height: 500px;
+  height: 580px;   /* 🔼 increase */
   background: black;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 5px 20px 50px #000;
 }
+
 
 #chk {
   display: none;
@@ -226,24 +225,26 @@ width: 65%;
   background: #e0dede;
   justify-content: center;
   display: flex;
-  margin: 20px auto;
+ margin: 20px auto;
+ 
   padding: 12px;
   border: none;
   outline: none;
   border-radius: 5px;
 }
 
+
 .butpro {
   width: 60%;
   height: 40px;
-  margin: 10px auto;
+ margin-left:90px;
   justify-content: center;
   display: block;
   color: #fff;
   background: black;
   font-size: 1em;
   font-weight: bold;
-  margin-top: 30px;
+ margin-top:10px;
   outline: none;
   border: none;
   border-radius: 5px;
@@ -256,7 +257,7 @@ width: 65%;
 }
 
 .login {
-  height: 460px;
+  height: 700px;
   background: #eee;
   border-radius: 60% / 10%;
   transform: translateY(-180px);
@@ -269,7 +270,7 @@ width: 65%;
 }
 
 #chk:checked ~ .login {
-  transform: translateY(-500px);
+  transform: translateY(-572px);
 }
 
 #chk:checked ~ .login .lab {
