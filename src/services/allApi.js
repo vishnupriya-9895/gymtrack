@@ -21,3 +21,15 @@ export const getAllProducts=async(reqHeader)=>{
 export const nutrientsAdd=async(reqbody,reqHeader)=>{
   return await axiosConfig("post",baseUrl+'/nutrientsAdd',reqbody,reqHeader)
 }
+export const allnutrienst=async(reqHeader)=>{
+  return await axiosConfig("get",baseUrl+'/allnutrienst',"",reqHeader)
+}
+export const addExcersice=async(reqbody,reqHeader)=>{
+  return await axiosConfig("post",baseUrl+'/addWorkout',reqbody,reqHeader)
+}
+export const getWorkout=async(reqHeader)=>{
+  return await axiosConfig("get",baseUrl+'/getWorkout',"",reqHeader)
+}
+export const getSingleWorkout=async(reqHeader,id)=>{
+  return await axiosConfig("get",  `${baseUrl}/getSingleWorkout/${id}`,"",reqHeader)
+}

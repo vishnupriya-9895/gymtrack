@@ -26,6 +26,7 @@ import AdminProduct from "./Admin/AdminProduct";
 import Footer from "./Components/Footer";
 import AdminNutrition from "./Admin/AdminNutrition";
 import { ToastContainer, Slide } from "react-toastify";
+import Singleexcercise from "./pages/Singleexcercise";
 
 function App() {
 useEffect(() => {
@@ -67,6 +68,8 @@ useEffect(() => {
         <Route path="/AdminUser" element={<AdminUser />} />
         <Route path="/AdminProduct" element={<AdminProduct />} />
         <Route path="/Footer" element={<Footer />} />
+       <Route path="/singleexcercise/:id" element={<Singleexcercise />} />
+
       </Routes>
       <ToastContainer
 position="top-right"

@@ -1,0 +1,133 @@
+import React, { useEffect, useState } from "react";
+import { Typography } from "@mui/material";
+import { useParams } from "react-router-dom";
+import { getSingleWorkout } from "../services/allApi";
+
+const Singleexcercise = () => {
+    const[singleData,setSingleData]=useState({})
+ let { id } = useParams();
+
+    console.log(id)
+    useEffect(()=>{
+single()
+    },[id])
+   const single = async () => {
+  try {
+    let token = localStorage.getItem("token");
+    let header = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    let apiresponse = await getSingleWorkout(id, header);
+    setSingleData(apiresponse.data.workout);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#f5f5f5",
+        padding: "40px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          maxWidth: "1000px",
+          background: "#fff",
+          borderRadius: "20px",
+          overflow: "hidden",
+          boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+        }}
+      >
+        {/* Image Section */}
+        <div style={{ flex: 1 }}>
+          <img
+            src="https://images.unsplash.com/photo-1599058917212-d750089bc07d"
+            alt="Exercise"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+
+        {/* Content Section */}
+        <div
+          style={{
+            flex: 1,
+            padding: "40px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <Typography variant="h4" style={{ fontWeight: 600 }}>
+            Push Ups
+          </Typography>
+
+          <Typography style={{ color: "#777", marginBottom: "20px" }}>
+            Chest • Home Workout
+          </Typography>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "15px",
+              marginBottom: "20px",
+            }}
+          >
+            <div
+              style={{
+                padding: "10px 16px",
+                background: "#f0f0f0",
+                borderRadius: "12px",
+                fontSize: "14px",
+              }}
+            >
+              10 mins
+            </div>
+
+            <div
+              style={{
+                padding: "10px 16px",
+                background: "#f0f0f0",
+                borderRadius: "12px",
+                fontSize: "14px",
+              }}
+            >
+               120 kcal
+            </div>
+
+            <div
+              style={{
+                padding: "10px 16px",
+                background: "#f0f0f0",
+                borderRadius: "12px",
+                fontSize: "14px",
+              }}
+            >
+               Bodyweight
+            </div>
+          </div>
+
+          <Typography style={{ lineHeight: 1.6 }}>
+            Push-ups are a classic bodyweight exercise that targets the chest,
+            shoulders, triceps, and core. Perfect for building upper body
+            strength at home.
+          </Typography>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Singleexcercise;

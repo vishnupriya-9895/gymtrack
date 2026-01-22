@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import "./Work.css";
 import { Typography } from "@mui/material";
+import { getWorkout } from "../../services/allApi";
 
 const bodyParts = [
   "Chest",
@@ -11,29 +12,38 @@ const bodyParts = [
   "Triceps",
   "Shoulders",
   "Abs",
-"Cardio",
-"Forearms"
+  "Cardio",
+  "Forearms",
+  "Warm-up",
 ];
 
-const exercisesData = {
-  Chest: [
-    {
-      name: "Push Ups",
-      img: "https://www.inspireusafoundation.org/file/2023/04/close-grip-push-up.gif",
-      desc: "A basic chest exercise you can do at home to build strength.",
-    },
-    {
-      name: "Incline Push Ups",
-      img: "https://fitnessprogramer.com/wp-content/uploads/2021/06/Incline-Push-Up.gif",
-      desc: "Targets upper chest and shoulders.",
-    },
-  ],
-
-  
-};
-
 const HomeWorkout = () => {
+  const [allWorkouts, setAllWorkouts] = useState([]);
   const [selectedPart, setSelectedPart] = useState("Chest");
+
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      try {
+        const res = await getWorkout();
+        console.log(res.data.workout); 
+        setAllWorkouts(res.data.workout);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchWorkouts();
+  }, []);
+
+ 
+  const filteredWorkouts = allWorkouts.filter((item) => {
+    const workoutType = item.workoutType?.toLowerCase();
+    const category = item.category?.toLowerCase();
+
+    return (
+      workoutType?.includes("home") &&
+      category === selectedPart.toLowerCase()
+    );
+  });
 
   return (
     <>
@@ -42,7 +52,7 @@ const HomeWorkout = () => {
       </div>
 
       <div className="homeWorkout-container">
-{/* side */}
+    
         <aside className="sidebar">
           <Typography variant="h5" className="mb-3">
             Home Workouts
@@ -61,22 +71,34 @@ const HomeWorkout = () => {
           ))}
         </aside>
 
+  
         <div className="exercise-content">
           <Typography variant="h4" className="mb-4">
             {selectedPart} Exercises
           </Typography>
 
           <div className="exercise-grid">
-            {exercisesData[selectedPart]?.map((each, index) => (
-              <div className="exercise-card" key={index}>
-                <img src={each.img} alt={each.name} className="exercise-img" />
-                <Typography variant="h6">{each.name}</Typography>
-                <Typography variant="body2">{each.desc}</Typography>
-              </div>
-            ))}
+            {filteredWorkouts.length > 0 ? (
+              filteredWorkouts.map((each) => (
+                <div className="exercise-card" key={each._id}>
+                  <img
+                    src={each.imageUrl}
+                    alt={each.workoutName}
+                    className="exercise-img"
+                  />
+                  <Typography variant="h6">
+                    {each.workoutName}
+                  </Typography>
+                  <Typography variant="body2">
+                    {each.description}
+                  </Typography>
+                </div>
+              ))
+            ) : (
+              <Typography>No workouts found</Typography>
+            )}
           </div>
         </div>
-
       </div>
     </>
   );
