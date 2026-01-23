@@ -11,10 +11,12 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActionArea from "@mui/material/CardActionArea";
 import { toast } from "react-toastify";
 import { getAllProducts } from "../services/allApi";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const [productData, setProductData] = useState([]);
 
+const[search,setSearch]=useState("");
   useEffect(() => {
     getProductData();
   }, []);
@@ -38,6 +40,10 @@ const Shop = () => {
       toast.error("something went wrong");
     }
   };
+const filteredProducts = productData.filter((item) =>
+  item.ProductName.toLowerCase().includes(search.toLowerCase())
+);
+
 
   return (
     <>
@@ -52,13 +58,13 @@ const Shop = () => {
           <InputGroup.Text>
             <FaSearch />
           </InputGroup.Text>
-          <Form.Control placeholder="Search for Products .." />
+          <Form.Control onChange={(e)=>setSearch(e.target.value)} placeholder="Search for Products .." />
           <Button variant="dark">Search</Button>
         </InputGroup>
 
-        {productData.length > 0 ? (
+        {filteredProducts.length > 0 ? (
           <div className="d-flex flex-wrap gap-4 mt-5 justify-content-center">
-            {productData.map((eachproduct) => (
+            {filteredProducts.map((eachproduct) => (
               <Card
                 key={eachproduct._id} 
                 sx={{
@@ -91,9 +97,10 @@ const Shop = () => {
                   </CardContent>
                 </CardActionArea>
 
+             <Link to='/Cart'>
                 <Button variant="dark" className="m-2 rounded-pill">
                   Add to Cart
-                </Button>
+                </Button></Link>
               </Card>
             ))}
           </div>

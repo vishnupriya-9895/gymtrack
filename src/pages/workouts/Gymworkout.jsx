@@ -9,9 +9,11 @@ import { Link } from "react-router-dom";
 const categories = [
   "Chest",
   "Biceps",
+  "Triceps",
   "Forearms",
-  "Strength",
+ 
   "Shoulders",
+  "cardio",
   "Warm-up",
   "Back",
   "Abs",
@@ -83,7 +85,7 @@ const GymWorkout = () => {
   to={`/singleexcercise/${each._id}`}
   style={{ textDecoration: "none" }}
 >
-  <button className="bg-danger p-3 text-black">
+  <button className="bg-black text-white hover:bg-white hover:text-black text-center ps-3 p-1 pe-3 rounded-2xl w-50" >
     View More
   </button>
 </Link>

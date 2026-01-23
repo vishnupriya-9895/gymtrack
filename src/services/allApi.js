@@ -30,6 +30,11 @@ export const addExcersice=async(reqbody,reqHeader)=>{
 export const getWorkout=async(reqHeader)=>{
   return await axiosConfig("get",baseUrl+'/getWorkout',"",reqHeader)
 }
-export const getSingleWorkout=async(reqHeader,id)=>{
-  return await axiosConfig("get",  `${baseUrl}/getSingleWorkout/${id}`,"",reqHeader)
-}
+export const getSingleWorkout = async (id, reqHeader) => {
+  return await axiosConfig(
+    "get",
+    `${baseUrl}/getSingleWorkout/${id}`,
+    "",
+    reqHeader
+  );
+};

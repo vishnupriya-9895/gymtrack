@@ -3,7 +3,7 @@ import Header from "../../Components/Header";
 import "./Work.css";
 import { Typography } from "@mui/material";
 import { getWorkout } from "../../services/allApi";
-
+import { Link } from "react-router-dom";
 const bodyParts = [
   "Chest",
   "Back",
@@ -92,6 +92,9 @@ const HomeWorkout = () => {
                   <Typography variant="body2">
                     {each.description}
                   </Typography>
+                 <Link to={`/singleexcercise/${each._id}`}>
+                  <button className= "bg-black text-white hover:bg-white hover:text-black text-center ps-3 p-1 pe-3 rounded-2xl w-50">start</button>
+                 </Link>
                 </div>
               ))
             ) : (

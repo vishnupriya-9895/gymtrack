@@ -47,10 +47,10 @@ single()
           boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
         }}
       >
-        {/* Image Section */}
+        
         <div style={{ flex: 1 }}>
           <img
-            src="https://images.unsplash.com/photo-1599058917212-d750089bc07d"
+            src={singleData?.imageUrl}
             alt="Exercise"
             style={{
               width: "100%",
@@ -60,7 +60,7 @@ single()
           />
         </div>
 
-        {/* Content Section */}
+       
         <div
           style={{
             flex: 1,
@@ -71,11 +71,11 @@ single()
           }}
         >
           <Typography variant="h4" style={{ fontWeight: 600 }}>
-            Push Ups
+          {singleData?.workoutName}
           </Typography>
 
           <Typography style={{ color: "#777", marginBottom: "20px" }}>
-            Chest • Home Workout
+             {singleData?.workoutType} • {singleData?.category}• {singleData?.difficulty}
           </Typography>
 
           <div
@@ -93,7 +93,7 @@ single()
                 fontSize: "14px",
               }}
             >
-              10 mins
+          resttime:  {singleData?.rest}  duration:{singleData?.duration} reps:{singleData?.rep} set:{singleData?.set}
             </div>
 
             <div
@@ -120,9 +120,7 @@ single()
           </div>
 
           <Typography style={{ lineHeight: 1.6 }}>
-            Push-ups are a classic bodyweight exercise that targets the chest,
-            shoulders, triceps, and core. Perfect for building upper body
-            strength at home.
+         {singleData?.description}
           </Typography>
         </div>
       </div>

@@ -5,7 +5,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
-
+import { FaCartArrowDown } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 const Header = () => {
   return (
     <Navbar expand="lg" className="bg-transparent">
@@ -48,6 +49,21 @@ const Header = () => {
               Contact
             </Link>
           </Nav>
+
+<Link
+  to="/Cart"
+  className="text-danger fs-4 pe-3 d-flex align-items-center justify-content-center"
+>
+  <FaHeart />
+</Link>
+<Link
+  to="/Cart"
+  className="text-dark fs-4 d-flex align-items-center justify-content-center"
+>
+  <FaCartArrowDown />
+</Link>
+
+
 
           {/* Login Button */}
           <Link to="/login">

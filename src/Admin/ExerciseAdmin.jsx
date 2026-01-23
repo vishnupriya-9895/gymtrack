@@ -100,6 +100,9 @@ let apiresponse=await addExcersice(reqbody,headers)
               <option>Legs</option>
               <option>Shoulders</option>
               <option>Abs</option>
+              <option>Back</option>
+                  <option>cardio</option>
+                            <option>Forearms</option>
               <option>Warm-up</option>
             </select>
 
