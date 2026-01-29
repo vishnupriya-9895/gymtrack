@@ -52,7 +52,7 @@ const AdminAside = () => {
 
            <Link style={{textDecoration:"none",color:"white"}} to={'/exerciseAdmin'}> Exercise </Link> <br />
          
-          <Link style={{textDecoration:"none",color:"white"}} to={'/AdminProduct'}> products</Link> <br />
+          {/* <Link style={{textDecoration:"none",color:"white"}} to={'/AdminProduct'}> products</Link> <br /> */}
                <Link style={{textDecoration:"none",color:"white"}} to={'/adminnutrition'}> nutrients</Link>
        
           <li>Logout</li>

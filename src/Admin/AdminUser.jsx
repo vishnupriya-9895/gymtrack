@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Table, InputGroup, Form, Button, Badge } from "react-bootstrap";
 import { FaSearch, FaUsers } from "react-icons/fa";
 import AdminHeader from "./AdminHeader";
 import AdminAside from "./AdminAside";
+import { getallUser } from "../services/allApi";
 
 const AdminUser = () => {
+  const [user, setUser] = useState([]);
+ const [search, setSearch] = useState("");
+  useEffect(() => {
+    getAllusers();
+  }, []);
+
+  const getAllusers = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const header = { Authorization: `Bearer ${token}` };
+
+      let apiresponse = await getallUser(header);
+
+      if (apiresponse.status === 200) {
+        setUser(apiresponse.data.users);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const filteredProducts = user.filter((item) =>
+    item.userType.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const totalUsers = user.length;
+  const totalBuyers = user.filter((u) => u.userType === "user").length;
+  const totalSellers = user.filter((u) => u.userType === "seller").length;
+
   return (
     <div>
       <AdminHeader />
@@ -19,13 +48,11 @@ const AdminUser = () => {
             width: "100%",
           }}
         >
-      
           <h2 style={{ fontWeight: "600" }}>User Activity</h2>
           <p style={{ color: "#6c757d" }}>
             Overview of users currently logged into the platform
           </p>
 
-      
           <div
             style={{
               display: "flex",
@@ -36,22 +63,18 @@ const AdminUser = () => {
           >
             <Card style={cardStyle}>
               <FaUsers size={30} />
-              <h6>Buyer </h6>
-              <h3>120</h3>
+              <h6>Buyer</h6>
+              <h3>{totalBuyers}</h3>
             </Card>
 
-            <Card style={{ ...cardStyle,  }}>
-              <h6>Premium Users</h6>
-              <h3 >45</h3>
-            </Card>
+           
 
-            <Card style={{ ...cardStyle, }}>
+            <Card style={{ ...cardStyle }}>
               <h6>Seller</h6>
-              <h3>75</h3>
+              <h3>{totalSellers}</h3>
             </Card>
           </div>
 
-       
           <div
             style={{
               background: "#fff",
@@ -62,16 +85,19 @@ const AdminUser = () => {
               maxWidth: "500px",
             }}
           >
-            <InputGroup>
-              <InputGroup.Text>
-                <FaSearch />
-              </InputGroup.Text>
-              <Form.Control placeholder="Search users..." />
-              <Button variant="dark">Search</Button>
-            </InputGroup>
+         <InputGroup>
+  <InputGroup.Text>
+    <FaSearch />
+  </InputGroup.Text>
+  <Form.Control
+    placeholder="Search users..."
+    onChange={(e) => setSearch(e.target.value)}
+  />
+  <Button variant="dark">Search</Button>
+</InputGroup>
+
           </div>
 
-      
           <Card
             style={{
               borderRadius: "12px",
@@ -91,35 +117,28 @@ const AdminUser = () => {
                   <th>Status</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>John Doe</td>
-                  <td>john@gmail.com</td>
-                  <td>Buyer</td>
-                  <td>
-                    <Badge bg="success">Online</Badge>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Sara Smith</td>
-                  <td>sara@gmail.com</td>
-                  <td>Seller</td>
-                  <td>
-                    <Badge bg="success">Online</Badge>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Michael</td>
-                  <td>mike@gmail.com</td>
-                  <td>Buyer</td>
-                  <td>
-                    <Badge bg="secondary">Offline</Badge>
-                  </td>
-                </tr>
-              </tbody>
+             <tbody>
+  {filteredProducts.length > 0 ? (
+    filteredProducts.map((u, index) => (
+      <tr key={u._id}>
+        <td>{index + 1}</td>
+        <td>{u.userName}</td>
+        <td>{u.email}</td>
+        <td>{u.userType}</td>
+        <td>
+          <Badge bg="success">Online</Badge>
+        </td>
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="5" className="text-center">
+        No users found
+      </td>
+    </tr>
+  )}
+</tbody>
+
             </Table>
           </Card>
         </div>

@@ -11,6 +11,7 @@ const Singleexcercise = () => {
     useEffect(()=>{
 single()
     },[id])
+
    const single = async () => {
   try {
     let token = localStorage.getItem("token");
@@ -19,7 +20,8 @@ single()
     };
 
     let apiresponse = await getSingleWorkout(id, header);
-    setSingleData(apiresponse.data.workout);
+    console.log(apiresponse.data)
+    setSingleData(apiresponse.data);
   } catch (error) {
     console.log(error);
   }
@@ -74,9 +76,17 @@ single()
           {singleData?.workoutName}
           </Typography>
 
-          <Typography style={{ color: "#777", marginBottom: "20px" }}>
-             {singleData?.workoutType} • {singleData?.category}• {singleData?.difficulty}
+      
+          
+             <Typography style={{ color: "#777", marginBottom: "20px" }}>
+           <span className="font-bold text-black">
+             Workout type: </span>{singleData?.workoutType}  
+             <span className="font-bold ms-2 text-black">
+             Difficulty: </span>{singleData?.difficulty}
+              <span className="font-bold ms-2 text-black">
+             Duration: </span>{singleData?.duration}  
           </Typography>
+     
 
           <div
             style={{
@@ -93,7 +103,7 @@ single()
                 fontSize: "14px",
               }}
             >
-          resttime:  {singleData?.rest}  duration:{singleData?.duration} reps:{singleData?.rep} set:{singleData?.set}
+         duration:{singleData?.duration} restime:{singleData?.rest}min    reps:{singleData?.rep} set:{singleData?.set}
             </div>
 
             <div
@@ -115,12 +125,13 @@ single()
                 fontSize: "14px",
               }}
             >
-               Bodyweight
+             equipment:  {singleData?.equipment}
             </div>
           </div>
 
           <Typography style={{ lineHeight: 1.6 }}>
          {singleData?.description}
+      
           </Typography>
         </div>
       </div>

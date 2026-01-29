@@ -172,11 +172,6 @@ const SellerSettings = () => {
           }}
         >
           <h5 style={{ marginBottom: "20px" }}></h5>
-
-     
-
-        
-
          
  <Button variant="success" className="me-3" >save</Button>
           <Button variant="danger">Logout</Button>

@@ -38,3 +38,6 @@ export const getSingleWorkout = async (id, reqHeader) => {
     reqHeader
   );
 };
+export const getallUser=async(reqHeader)=>{
+  return await axiosConfig("get",baseUrl+'/getAllUsers',"",reqHeader)
+}

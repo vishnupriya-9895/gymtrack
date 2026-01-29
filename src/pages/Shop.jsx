@@ -11,12 +11,12 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActionArea from "@mui/material/CardActionArea";
 import { toast } from "react-toastify";
 import { getAllProducts } from "../services/allApi";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Shop = () => {
   const [productData, setProductData] = useState([]);
-
-const[search,setSearch]=useState("");
+  const [search, setSearch] = useState("");
+const navigate=useNavigate()
   useEffect(() => {
     getProductData();
   }, []);
@@ -32,18 +32,42 @@ const[search,setSearch]=useState("");
 
       if (apiresponse.status === 200) {
         setProductData(apiresponse.data.productData);
-      } else {
-        toast.error(apiresponse.response.data.message);
       }
     } catch (error) {
       console.log(error);
       toast.error("something went wrong");
     }
   };
-const filteredProducts = productData.filter((item) =>
-  item.ProductName.toLowerCase().includes(search.toLowerCase())
-);
 
+
+  const addToCart = (product) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) ;
+
+    const existingItem = cart.find(
+      (item) => item._id === product._id
+    );
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({
+        _id: product._id,
+        ProductName: product.ProductName,
+        Price: product.Price,
+        imgUrl: product.imgUrl,
+        quantity: 1,
+      });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    toast.success("added to cart");
+    navigate('/cart')
+    
+  };
+
+  const filteredProducts = productData.filter((item) =>
+    item.ProductName.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <>
@@ -58,7 +82,10 @@ const filteredProducts = productData.filter((item) =>
           <InputGroup.Text>
             <FaSearch />
           </InputGroup.Text>
-          <Form.Control onChange={(e)=>setSearch(e.target.value)} placeholder="Search for Products .." />
+          <Form.Control
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search for Products .."
+          />
           <Button variant="dark">Search</Button>
         </InputGroup>
 
@@ -66,7 +93,7 @@ const filteredProducts = productData.filter((item) =>
           <div className="d-flex flex-wrap gap-4 mt-5 justify-content-center">
             {filteredProducts.map((eachproduct) => (
               <Card
-                key={eachproduct._id} 
+                key={eachproduct._id}
                 sx={{
                   width: "300px",
                   minWidth: "300px",
@@ -92,15 +119,18 @@ const filteredProducts = productData.filter((item) =>
                       {eachproduct.ProductName}
                     </Typography>
                     <Typography variant="body2">
-                      Price: ₹{eachproduct.Price}
+                      Price: {eachproduct.Price}
                     </Typography>
                   </CardContent>
                 </CardActionArea>
 
-             <Link to='/Cart'>
-                <Button variant="dark" className="m-2 rounded-pill">
+                <Button
+                  variant="dark"
+                  className="m-2 rounded-pill"
+                  onClick={() => addToCart(eachproduct)}
+                >
                   Add to Cart
-                </Button></Link>
+                </Button>
               </Card>
             ))}
           </div>
