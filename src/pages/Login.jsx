@@ -92,8 +92,8 @@ const Login = () => {
 
         <div className="signup">
           <div className="">
-          <label className="lab" htmlFor="chk" aria-hidden="true">
-          sign up
+            <label className="lab" htmlFor="chk" aria-hidden="true">
+              sign up
             </label>
 
             <input
@@ -146,9 +146,12 @@ const Login = () => {
                   console.log("Login Failed");
                 }}
               />
-
             </div>
-             <button onClick={onRegisterClick} type="button" className="butpro bg-white text-black">
+            <button
+              onClick={onRegisterClick}
+              type="button"
+              className="butpro bg-white text-black"
+            >
               Sign up
             </button>
           </div>

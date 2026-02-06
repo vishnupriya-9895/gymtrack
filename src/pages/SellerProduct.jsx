@@ -7,7 +7,7 @@ import { addproduct } from "../services/allApi";
 const SellerProducts = () => {
   const [previewArray, setPreviewArray] = useState([]);
   const [preview, setPreview] = useState(
-    "https://static.vecteezy.com/system/resources/thumbnails/004/640/699/small/circle-upload-icon-button-isolated-on-white-background-vector.jpg"
+    "https://static.vecteezy.com/system/resources/thumbnails/004/640/699/small/circle-upload-icon-button-isolated-on-white-background-vector.jpg",
   );
   const [productData, setProductData] = useState({
     ProductName: "",
@@ -50,9 +50,9 @@ const SellerProducts = () => {
           });
         }
       }
-      let apiresponse=await addproduct(reqbody,headers)
-      console.log(apiresponse)
-      toast.success("succesfully added")
+      let apiresponse = await addproduct(reqbody, headers);
+      console.log(apiresponse);
+      toast.success("succesfully added");
     } catch (error) {
       console.log(error);
       toast.error("something went wrong");
@@ -112,7 +112,6 @@ const SellerProducts = () => {
             style={inputStyle}
           />
 
-          {/* CATEGORY */}
           <input
             onChange={(e) =>
               setProductData({ ...productData, Category: e.target.value })
@@ -132,7 +131,6 @@ const SellerProducts = () => {
             style={inputStyle}
           />
 
-          {/* STOCK */}
           <input
             onChange={(e) =>
               setProductData({ ...productData, StockQuantity: e.target.value })
@@ -143,7 +141,6 @@ const SellerProducts = () => {
             style={inputStyle}
           />
 
-          {/* DESCRIPTION */}
           <textarea
             onChange={(e) =>
               setProductData({ ...productData, productDesc: e.target.value })
@@ -198,7 +195,7 @@ const SellerProducts = () => {
           )}
 
           <button
-          onClick={onProductClick}
+            onClick={onProductClick}
             type="submit"
             style={{
               width: "100%",
