@@ -2,8 +2,24 @@ import React from "react";
 import { Container, Row, Col, Card, Button, ListGroup } from "react-bootstrap";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import {loadStripe} from '@stripe/stripe-js';
+import { createCheckoutSession } from "../services/allApi";
+import { toast } from "react-toastify";
 
 const Premium = () => {
+  const onByClick = async () => {
+    try {
+      const apiResponse = await createCheckoutSession();
+
+      // Redirect to Stripe hosted page
+      window.location.href = apiResponse.data.url;
+
+    } catch (error) {
+      console.log(error);
+      toast.error("something went wrong while doing payment");
+    }
+  };
+
   return (
     <>
    <Header/>
@@ -66,17 +82,19 @@ const Premium = () => {
                     Cancel anytime
                   </p>
 
-                  <Button
-                    variant="dark"
-                    size="lg"
-                    style={{
-                      width: "100%",
-                      borderRadius: "12px",
-                      padding: "12px",
-                    }}
-                  >
-                    Unlock Premium
-                  </Button>
+                 <Button
+  variant="dark"
+  size="lg"
+  style={{
+    width: "100%",
+    borderRadius: "12px",
+    padding: "12px",
+  }}
+  onClick={onByClick}
+>
+  Unlock Premium
+</Button>
+
                 </div>
               </Card.Body>
             </Card>

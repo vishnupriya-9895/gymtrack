@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
+import { toast } from "react-toastify";
+import { createCheckoutSession } from "../services/allApi";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -9,7 +11,18 @@ const Cart = () => {
     setCart(savedCart);
   }, []);
 
+ const onByClick = async () => {
+    try {
+      const apiResponse = await createCheckoutSession();
 
+      // Redirect to Stripe hosted page
+      window.location.href = apiResponse.data.url;
+
+    } catch (error) {
+      console.log(error);
+      toast.error("something went wrong while doing payment");
+    }
+  };
   const updateQuantity = (id, type) => {
     const updatedCart = cart.map((item) => {
       if (item._id === id) {
@@ -132,8 +145,8 @@ const Cart = () => {
               <span> {total}</span>
             </div>
 
-            <button className="btn btn-dark w-100 mt-4 rounded-pill">
-              Checkout
+            <button onClick={onByClick} className="btn btn-dark w-100 mt-4 rounded-pill">
+          buynow
             </button>
           </div>
         </div>

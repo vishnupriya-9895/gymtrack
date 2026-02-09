@@ -41,3 +41,21 @@ export const getSingleWorkout = async (id, reqHeader) => {
 export const getallUser=async(reqHeader)=>{
   return await axiosConfig("get",baseUrl+'/getAllUsers',"",reqHeader)
 }
+export const createCheckoutSession = async () => {
+  return await axiosConfig(
+    "post",
+ baseUrl + "/api/create-checkout-session",
+
+    {},
+  );
+};
+export const getseller = async (reqHeader) => {
+  return await axiosConfig(
+    "get",
+    baseUrl + "/getSellerProfile",
+    "",
+    reqHeader
+  );
+};
+
+

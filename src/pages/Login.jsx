@@ -44,12 +44,16 @@ const Login = () => {
       if (apiresponse.status == 200) {
         toast.success("login succesfully");
         localStorage.setItem("token", apiresponse.data.token);
+const role = apiresponse.data.userType;
 
-        if (apiresponse.data.userType == "seller") {
-          navigate("/sellerhome");
-        } else {
-          navigate("/");
-        }
+if (role == "admin") {
+  navigate("/adminhome");
+} else if (role == "seller") {
+  navigate("/sellerhome");
+} else {
+  navigate("/");
+}
+
       } else {
         toast.error(apiresponse.response.data.message);
       }
