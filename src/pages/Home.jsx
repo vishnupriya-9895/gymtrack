@@ -369,16 +369,16 @@ const Home = () => {
             {productData.map((eachproduct) => (
               <Col key={eachproduct._id} xs={12} sm={6} md={4} lg={3}>
                 <Card className="h-100 border-0 shadow-sm product-card">
-                 <Card.Img
-  variant="top"
-  src={eachproduct.imgUrl}
-  alt={eachproduct.ProductName}
-  style={{
-    height: "200px",
-    objectFit: "contain",
-    backgroundColor: "#f8f9fa",
-  }}
-/>
+                  <Card.Img
+                    variant="top"
+                    src={eachproduct.imgUrl}
+                    alt={eachproduct.ProductName}
+                    style={{
+                      height: "200px",
+                      objectFit: "contain",
+                      backgroundColor: "#f8f9fa",
+                    }}
+                  />
 
                   <Card.Body className="text-center">
                     <Card.Title className="fw-semibold">
@@ -388,11 +388,13 @@ const Home = () => {
                     <Card.Text className="text-dark fw-bold">
                       {eachproduct.Price}
                     </Card.Text>
- 
-                     <Link to="/shop"> <Button variant="dark" className="px-4 rounded-pill">
-                      Shop Now
-                    </Button></Link>
-                 
+
+                    <Link to="/shop">
+                      {" "}
+                      <Button variant="dark" className="px-4 rounded-pill">
+                        Shop Now
+                      </Button>
+                    </Link>
                   </Card.Body>
                 </Card>
               </Col>
@@ -431,7 +433,7 @@ const Home = () => {
                 following the workout routines regularly. The exercises are{" "}
                 <br /> practical and effective.”
               </Typography>
-              <Typography>-vishnu</Typography>
+              <Typography>-John</Typography>
             </div>
             <div style={{ marginRight: "70px" }}>
               <div
@@ -449,7 +451,7 @@ const Home = () => {
                 levels. <br /> Each workout helps improve strength, flexibility,
                 and overall <br /> stamina.
               </Typography>
-              <Typography>-poornima</Typography>
+              <Typography>-Maria</Typography>
             </div>
           </div>
         </div>
