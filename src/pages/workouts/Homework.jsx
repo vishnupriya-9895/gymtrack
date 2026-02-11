@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header";
-import "./Work.css";
+import "./work.css";
 import { Typography } from "@mui/material";
 import { getWorkout } from "../../services/allApi";
 import { Link } from "react-router-dom";
