@@ -23,21 +23,12 @@ const navigate=useNavigate()
 
   const getProductData = async () => {
     try {
+      const token = localStorage.getItem("token");
+      const header = {
+        Authorization: `Bearer ${token}`,
+      };
 
-    const token = localStorage.getItem("token");
-
-let header = {};
-
-if (token) {
-  header = {
-    Authorization: `Bearer ${token}`,
-  };
-}
-
-const apiresponse = await getAllProducts(header);
-
-
-      
+      const apiresponse = await getAllProducts(header);
 
       if (apiresponse.status === 200) {
         setProductData(apiresponse.data.productData);
