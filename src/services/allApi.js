@@ -15,8 +15,8 @@ export const addproduct=async(reqbody,reqHeader)=>{
 export const  getLimtedProducts=async()=>{
   return await axiosConfig("get",baseUrl+"/getLimtedProducts","")
 }
-export const getAllProducts=async(reqHeader)=>{
-  return await axiosConfig("get",baseUrl+'/getAllProducts',"",reqHeader)
+export const getAllProducts=async()=>{
+  return await axiosConfig("get",baseUrl+'/getAllProducts',"")
 }
 export const nutrientsAdd=async(reqbody,reqHeader)=>{
   return await axiosConfig("post",baseUrl+'/nutrientsAdd',reqbody,reqHeader)
